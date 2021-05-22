@@ -30,14 +30,37 @@ const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console. log("Connected to Mongoose"))
 
+// GET register form (moved to server.js)
+app.get('/register', (req, res) => {
+   res.render('profiles/register.ejs')
+})
+
 // GET login form (moved to server.js)
 app.get('/login', (req, res) => {
     res.render('profiles/login.ejs')
  })
 
- // GET register form (moved to server.js)
-app.get('/register', (req, res) => {
-    res.render('profiles/register.ejs')
+
+// GET logout
+app.get('/logout', (req, res) => {
+    //delete token session
+    res.render('profiles/login.ejs')
+})
+
+
+// GET home
+app.get('/home', (req, res) => {
+    res.redirect('/')
+})
+
+// GET about
+app.get('/about', (req, res) => {
+    res.render('footers/about.ejs')
+})
+
+// GET contacts
+app.get('/contacts', (req, res) => {
+    res.render('footers/contacts.ejs')
 })
 
 app.use(expressLayouts)
