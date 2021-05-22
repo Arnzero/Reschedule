@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
-const User = require('./user')
 
-const userSchema = new mongoose.Schema({
+const profileSchema = new mongoose.Schema({
     fname: {
         type: String,
         required: true
@@ -25,11 +24,11 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-userSchema.pre('remove', function(next) {
-    Task.find({ user: this.id }, (err,users) => {
+profileSchema.pre('remove', function(next) {
+    Task.find({ profile: this.id }, (err,users) => {
         if (err) {
             next(err)
-          } else if (users.length > 0) {
+          } else if (profile.length > 0) {
             next(new Error('This User has tasks still'))
           } else {
             next()
@@ -38,4 +37,4 @@ userSchema.pre('remove', function(next) {
 })
 
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('Profile', profileSchema)

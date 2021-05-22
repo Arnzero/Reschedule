@@ -30,10 +30,10 @@ const taskSchema = mongoose.Schema({
         required: true,
         default: Date.now()
     },
-    user: {
+    profile: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'Profile'
     }
 })
 

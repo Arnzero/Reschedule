@@ -1,9 +1,39 @@
 const express = require('express')
 const router = express.Router()
-// models go here
+const profile = require('../models/profile')
 
+// Display Today
 router.get('/', (req, res) => {
-    res.send("This is our index page")
+    res.render('index.ejs')
+})
+
+// GET register form (moved to server.js)
+
+
+// POST register -- New User
+router.post('/register', async (req, res) => {
+    
+    /* const profile = new Profile({
+        fname: req.body.fname,
+        lname: req.body.lname,
+        email: req.body.email,
+        passw: req.body.password,
+    })*/
+    
+    try{
+        //const newProfile = await profile.save()
+       // res.send("Added new User!")
+       res.redirect('/login')
+    } catch {
+        res.send("error posting new user!")
+    }
+})
+
+// GET login form (moved to server.js)
+
+// POST login -- verify user
+router.post('/login', (req, res) => {
+    res.redirect('/')
 })
 
 module.exports = router

@@ -1,9 +1,18 @@
 const express = require('express')
 const router = express.Router()
-// models go here
 
-router.get('/', (req, res) => {
-    res.send("This is our profile page")
+const Profile = require('../models/profile')
+
+
+// GET profile edit form
+router.get('/edit', (req, res) => {
+    res.render('profiles/edit.ejs')
 })
+
+// PUT -- update profile
+router.put('/:id', (req, res) => {
+    res.send("Updated profile")
+})
+
 
 module.exports = router
