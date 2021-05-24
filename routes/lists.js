@@ -14,7 +14,14 @@ router.get('/show_list', (req, res) => {
 // PUT update list item
 
 // GET a list item to create FORM
+router.get('/new', (req, res) => {
+    res.render('lists/new.ejs')
+})
 
 // POST a list item
+
+router.post('/new', (req, res) => {
+    res.respon("added new task")
+})
 
 module.exports = router

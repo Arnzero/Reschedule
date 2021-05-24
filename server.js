@@ -30,6 +30,10 @@ const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console. log("Connected to Mongoose"))
 
+//In order for register/login to avoid
+// layouts, we placed it beforehand
+// all the register/login POST is in route index.js
+
 // GET register form (moved to server.js)
 app.get('/register', (req, res) => {
    res.render('profiles/register.ejs')
