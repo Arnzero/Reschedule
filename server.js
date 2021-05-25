@@ -9,8 +9,8 @@ const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
 const profileRouter = require('./routes/profiles')
-const tasksRouter = require('./routes/tasks')
-const weekRouter = require('./routes/weeks')
+const errandRouter = require('./routes/errandTasks')
+const weekRouter = require('./routes/weekTasks')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -69,8 +69,8 @@ app.get('/contacts', (req, res) => {
 app.use(expressLayouts)
 app.use('/', indexRouter)
 app.use('/profile', profileRouter) // SINGULAR for convention
-app.use('/week', weekRouter)
-app.use('/tasks', tasksRouter)
+app.use('/weekTasks', weekRouter)
+app.use('/errandTasks', errandRouter)
 
 /*
 app.use(function(req, res, next) {

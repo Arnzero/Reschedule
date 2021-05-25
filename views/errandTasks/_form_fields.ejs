@@ -1,0 +1,96 @@
+
+<form action="/errandTasks/new" method='POST'>
+    <fieldset>
+    <legend>Errand Header</legend>
+        <div>
+            <label for="miscName">Misc. Errands</label>
+            <input type="text"
+                name="miscName"
+                id="miscName"
+                value="miscname">
+        </div>
+        <div>
+            <label for="priority">Priority: 1 for front, 0 for last</label>
+            <input type="number"
+                name="priority"
+                id="priority"
+                value=""
+                min="0"
+                max="200">
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend>Errand Time Info</legend>
+        <div>
+            <label for="timePeriod20">20 Mins</label>
+            <input id="timePeriod20"
+                type="radio"
+                name="timePeriod"
+                value="20">
+            <label for="timePeriod30">30 Mins</label>
+            <input id="timePeriod30"
+                type="radio"
+                name="timePeriod"
+                value="30">
+            <label for="timePeriod40">40 Mins</label>
+            <input id="timePeriod40"
+                type="radio"
+                name="timePeriod"
+                value="40">
+            <label for="timePeriod1">1 Hour</label>
+            <input id="timePeriod1"
+                type="radio"
+                name="timePeriod"
+                value="1">
+            <label for="timePeriod2">2 Hours</label>
+            <input id="timePeriod2"
+                type="radio"
+                name="timePeriod"
+                value="2">
+            <label for="timePeriod3">3 Hours</label>
+            <input id="timePeriod3"
+                type="radio"
+                name="timePeriod"
+                value="3">
+            <label for="timePeriod4">4 Hours</label>
+            <input id="timePeriod4"
+                type="radio"
+                name="timePeriod"
+                value="4">
+            <label for="timePeriod5">5 Hours</label>
+            <input id="timePeriod5"
+                type="radio"
+                name="timePeriod"
+                value="5">
+            <label for="timePeriod6">6 Hours</label>
+            <input id="timePeriod6"
+                type="radio"
+                name="timePeriod"
+                value="6">   
+            <label for="timePeriod7">7 Hours</label>
+            <input id="timePeriod7"
+                type="radio"
+                name="timePeriod"
+                value="7">
+            <label for="timePeriod8">8 Hours</label>
+            <input id="timePeriod8"
+                type="radio"
+                name="timePeriod"
+                value="8">
+            <label for="timePeriod9">9 Hours</label>
+            <input id="timePeriod9"
+                type="radio"
+                name="timePeriod"
+                value="9">             
+        </div>
+    </fieldset>
+        <div>
+            <!--boolean: if done, add to history record-->
+            <input type="hidden"
+            name="completed"
+            value="false">
+        </div>
+    <br>
+    <button type="submit">Create</button>
+</form>
+

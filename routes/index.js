@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const profile = require('../models/profile')
+const MiscTask = require('../models/misc_task')
+const CommTask = require('../models/comm_task')
 
 // Display Today
 router.get('/', (req, res) => {

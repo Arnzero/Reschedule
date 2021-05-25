@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const taskSchema = mongoose.Schema({
+const commTaskSchema = mongoose.Schema({
     subTask1: {
         type: String,
         required: true
@@ -37,4 +37,4 @@ const taskSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Task', taskSchema)
+module.exports = mongoose.model('CommTask', commTaskSchema)

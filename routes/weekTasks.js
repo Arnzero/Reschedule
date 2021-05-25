@@ -1,27 +1,28 @@
 const express = require('express')
 const router = express.Router()
-// models go here
+const MiscTask = require('../models/misc_task')
+const CommTask = require('../models/comm_task')
 
 
 // GET week index -- shows my week
 router.get('/', (req, res) => {
-    res.render('week/index.ejs')
+    res.render('weekTasks/index.ejs')
 })
 
 // GET create week task
 router.get('/new', (req, res) => {
-    res.render('week/new.ejs')
+    res.render('weekTasks/new.ejs')
 })
     // POST create week task
     
 // GET view a specific task
 router.get('/show', (req, res) => {
-    res.render('week/show.ejs')
+    res.render('weekTasks/show.ejs')
 })
 
 // GET a task to edit FORM
 router.get('/edit', (req, res) => {
-    res.render('week/edit.ejs')
+    res.render('weekTasks/edit.ejs')
 })
     // PUT update a task 
 
