@@ -1,8 +1,5 @@
 <h2>Add New Errand Task to queue</h2>
-<fieldset>
-<legend>Top 6 items on queue</legend>
-    <p>table of top 6 items on queue w. label and object</p>
-</fieldset>
-<p>Show a list of top 5 tasks on the queue here</p>
-<%- include('./_form_fields.ejs')  %> 
-
+<form action="/errandTasks" method="POST">
+    <%- include('./_form_fields')  %> 
+       <button type="submit">Create</button>
+   </form>

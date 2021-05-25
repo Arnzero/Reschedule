@@ -1,0 +1,46 @@
+###########################################
+### tests for weekTasks ROUTE ###########
+### all week tasks ROUTE           ###########
+GET http://localhost:3000/weekTasks
+###
+### GET task form
+GET http://localhost:3000/weekTasks
+###
+### POST new task
+POST http://localhost:3000/weekTasks
+###
+### GET specific task
+GET http://localhost:3000/weekTasks/someId
+###
+### GET specific task to edit
+GET http://localhost:3000/weekTasks/someId/edit
+###
+### PUT update specific task
+PUT http://localhost:3000/weekTasks/someId/
+###
+### delete a specific task
+DELETE http://localhost:3000/weekTasks/someId
+
+
+###########################################
+### tests for errandTasks ROUTE ###########
+### all errands ROUTE           ###########
+GET http://localhost:3000/errandTasks
+###
+### GET task form
+GET http://localhost:3000/errandTasks
+###
+### POST new task
+POST http://localhost:3000/errandTasks
+###
+### GET specific task
+GET http://localhost:3000/errandTasks/someId
+###
+### GET specific task to edit
+GET http://localhost:3000/errandTasks/someId/edit
+###
+### PUT update specific task
+PUT http://localhost:3000/errandTasks/someId/
+###
+### delete a specific task
+DELETE http://localhost:3000/errandTasks/someId
