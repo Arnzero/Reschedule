@@ -14,7 +14,24 @@ router.get('/new', (req, res) => {
 })
     // POST create misc. task
 router.post('/', async (req, res) => {
-    res.send("created errand task!")
+   
+    const errand = MiscTask({
+        miscName: req.body.miscName,
+        priority: req.body.priority,
+        timePeriod: req.body.timePeriod,
+        completed: req.body.completed,
+        profile:'60ad846e27d2e8391c5272cd'
+    })
+
+    try {
+        const newErrand = await errand.save()
+        res.redirect('/errandTasks/')
+    } catch {
+        res.render('errandTasks/new', {
+            errand: errand,
+            errorMessage: "Error adding new errand!"
+        })
+    }
 })
     
 // GET show a specific misc. task

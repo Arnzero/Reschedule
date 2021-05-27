@@ -1,10 +1,11 @@
-<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> 
+</script>
 <script>
-    // if subTask2 and subTask3 values are none, then the finish time is start time + 1
+    
     $(document).ready(function(){
         $("#full").click(function(){
             var fullChange ="<div id='options_field'><div><label for='subTask1'>Task 1:</label><input type='text' name='subTask1' value='fullTask'></div><div><label for='subTask2'></label><input type='hidden' name='subTask2' value='none'></div><div><label for='subTask3'></label><input type='hidden' name='subTask3' value='none'></div></div>" 
-            var shorHourT = "<fieldset id='shortHourToggle'><label>Routine Finish Time</label><div><div><div><label for='finishTime1'>1</label><input type='radio'name='finishTime'id='finishTime1'value='1'><label for='finishTime2'>2</label><input type='radio'name='finishTime'id='finishTime2'value='2'><label for='finishTime3'>3</label><input type='radio'name='finishTime'id='finishTime3'value='3'><label for='finishTime4'>4</label><input type='radio'name='finishTime'id='finishTime4'value='4'><label for='finishTime5'>5</label><input type='radio'name='finishTime'id='finishTime5'value='5'><label for='finishTime6'>6</label><input type='radio'name='finishTime'id='finishTime6'value='6'><label for='finishTime7'>7</label><input type='radio'name='finishTime'id='finishTime7'value='7'><label for='finishTime8'>8</label><input type='radio'name='finishTime'id='finishTime8'value='8'><label for='finishTime9'>9</label><input type='radio'name='finishTime'id='finishTime9'value='9'><label for='finishTime10'>10</label><input type='radio'name='finishTime'id='finishTime10'value='10'><label for='finishTime11'>11</label><input type='radio'name='finishTime'id='finishTime11'value='11'><label for='finishTime12'>12</label><input type='radio'name='finishTime'id='finishTime12'value='12'></div><div><label for='startPeriodAM'>AMfin</label><input type='radio'name='startPeriod'id='startPeriodAM'value='finishAM'><label for='startPeriodPM'>PMfin</label><input type='radio'name='startPeriod'id='startPeriodPM'value='finishPM'></div></div>"  
+            var shorHourT = "<div id='shortHourToggle'><fieldset><legend>Routine Finish Time</legend> <div> <label for='finishTime1'>1</label> <input type='radio' name='finishTime' id='finishTime1' value='1'> <label for='finishTime2'>2</label> <input type='radio' name='finishTime' id='finishTime2' value='2'> <label for='finishTime3'>3</label> <input type='radio' name='finishTime' id='finishTime3' value='3'> <label for='finishTime4'>4</label> <input type='radio' name='finishTime' id='finishTime4' value='4'> <label for='finishTime5'>5</label> <input type='radio' name='finishTime' id='finishTime5' value='5'> <label for='finishTime6'>6</label> <input type='radio' name='finishTime' id='finishTime6' value='6'> <label for='finishTime7'>7</label> <input type='radio' name='finishTime' id='finishTime7' value='7'> <label for='finishTime8'>8</label> <input type='radio' name='finishTime' id='finishTime8' value='8'> <label for='finishTime9'>9</label> <input type='radio' name='finishTime' id='finishTime9' value='9'> <label for='finishTime10'>10</label> <input type='radio' name='finishTime' id='finishTime10' value='10'> <label for='finishTime11'>11</label> <input type='radio' name='finishTime' id='finishTime11' value='11'> <label for='finishTime12'>12</label> <input type='radio' name='finishTime' id='finishTime12' value='12'> </div> <div> <label for='finishPeriodAM'>AM fin</label> <input type='radio' name='finishPeriod' id='finishPeriodAM' value='AM'> <label for='finishPeriodPM'>PM fin</label> <input type='radio' name='finishPeriod' id='finishPeriodPM' value='PM'> </div> </fieldset> </div>"  
             $("#options_field").replaceWith(fullChange);
             $("#shortHourToggle").replaceWith(shorHourT);
       
@@ -23,11 +24,9 @@
             $("#shortHourToggle").replaceWith(shorHourT);
         });
     });
+
 </script>
-
-
-
-
+<h3> Lets display the open times here?</h3>
 <p>If 1 task takes multiple hours, enter 1 task. If multiple tasks take 1 hour fill up to 3 tasks or enter "misc" for auto filler</p>
 <p>Common tasks are; sleep, eat, work, relax. Miscellaneous tasks are; commute, nap, drop x off which are entered elsewhere</p>
 
@@ -67,14 +66,6 @@
                     <label for='subTask1'>Task 1:</label>
                     <input type='text' name="subTask1">
                 </div>
-                <div>
-                    <label for='subTask2'>Task 2:</label>
-                    <input type='text' name='subTask2'>
-                </div>
-                <div>
-                    <label for='subTask3'>Task 3:</label>
-                    <input type='text' name='subTask3'>
-                </div>
             </div>
     </fieldset>
 
@@ -108,15 +99,15 @@
         </div>
         <div>
             <label for="startPeriodAM">AM</label>
-            <input type="radio" name="startPeriod" id="startPeriodAM" value="startAM">
+            <input type="radio" name="startPeriod" id="startPeriodAM" value="AM">
             <label for="startPeriodPM">PM</label>
-            <input type="radio" name="startPeriod" id="startPeriodPM" value="startPM">
+            <input type="radio" name="startPeriod" id="startPeriodPM" value="PM">
         </div>
     </fieldset>
     <div id="shortHourToggle">
         <fieldset >
             <legend >Routine Finish Time</legend>
-            <div>
+            
                 <div>
                     <label for='finishTime1'>1</label>
                     <input type='radio' name='finishTime' id='finishTime1' value='1'>
@@ -144,12 +135,12 @@
                     <input type='radio' name='finishTime' id='finishTime12' value='12'>
                 </div>
                 <div>
-                    <label for='startPeriodAM'>AM fin</label>
-                    <input type='radio' name='startPeriod' id='startPeriodAM' value='finishAM'>
-                    <label for='startPeriodPM'>PM fin</label>
-                    <input type='radio' name='startPeriod' id='startPeriodPM' value='finishPM'>
+                    <label for='finishPeriodAM'>AM fin</label>
+                    <input type='radio' name='finishPeriod' id='finishPeriodAM' value='AM'>
+                    <label for='finishPeriodPM'>PM fin</label>
+                    <input type='radio' name='finishPeriod' id='finishPeriodPM' value='PM'>
                 </div>
-            </div>
+            
         </fieldset>
     </div>
    

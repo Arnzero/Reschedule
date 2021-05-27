@@ -5,8 +5,19 @@ const CommTask = require('../models/comm_task')
 // don't forget to implement /:id/edit and for 'put', 'DELETE', 'get'
 
 // GET week index -- shows my week
-router.get('/', (req, res) => {
-    res.render('weekTasks/index.ejs')
+router.get('/', async(req, res) => {
+    try {
+
+        let allWeekTasks = await CommTask.find({}).limit(10).exec()
+    
+        res.render('weekTasks/index.ejs', {
+            weekTasks: allWeekTasks
+        })
+    }catch {
+        res.render('weekTasks/index.ejs', {
+            errorMessage: "Cannot load week tasks"
+        })
+    }
 })
 
 // GET create week task
@@ -15,7 +26,31 @@ router.get('/new', (req, res) => {
 })
     // POST create week task
  router.post('/', async (req, res) => {
-     res.send("Posted new week task!")
+     //res.send("Posted new week task!")
+     // this function need to loop depending
+     // on how many days it was clicked, up to 7!
+     const weekTask = new CommTask({
+         dayOfWeek: "sunday",
+         subTask1: req.body.subTask1,
+         subTask2: req.body.subTask2,
+         subTask3: req.body.subTask3,
+         startTime: req.body.startTime,
+         startPeriod: req.body.startPeriod,
+         finishTime: req.body.finishTime,
+         finishPeriod: req.body.finishPeriod,
+         profile: "60ad846e27d2e8391c5272cd"
+     })
+     try {
+        await weekTask.save()        
+        res.redirect('/weekTasks/')
+     } catch(err) {
+         console.log(err)
+        res.render('weekTasks/new', {
+            weekTask: weekTask,
+            errorMessage: 'Error creating week task!'
+        })
+     }
+
  })   
 // GET view a specific task
 router.get('/:id', (req, res) => {

@@ -9,8 +9,8 @@ const miscTaskSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    periodTime: {
-        type: Number,
+    timePeriod: {
+        type: String,
         required: true
     },
     completed: {

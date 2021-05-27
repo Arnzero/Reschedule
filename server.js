@@ -1,6 +1,10 @@
+
+
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
+// Models
+const Profile = require('./models/profile')
 
 const express = require('express')
 const app = express()
@@ -33,21 +37,73 @@ db.once('open', () => console. log("Connected to Mongoose"))
 // layouts, we placed it beforehand
 // all the register/login POST is in route index.js
 
-// GET register form (moved to server.js)
+// GET register form 
 app.get('/register', (req, res) => {
+    
    res.render('profiles/register.ejs')
 })
 
-// GET login form (moved to server.js)
+// POST register
+app.post('/register', async (req, res) => {
+    
+    const newProfile = new Profile({
+        fname: req.body.fname,
+        lname: req.body.lname,
+        email: req.body.email,
+        passw: req.body.password
+    })
+    try {
+        await newProfile.save()
+        res.redirect('/login')
+    } catch {
+        
+        res.render('profiles/register', {
+            profile: newProfile,
+            errorMessage: 'Error registering!'
+        })
+    }
+})
+
+// GET login FORM 
 app.get('/login', (req, res) => {
+    
     res.render('profiles/login.ejs')
  })
+
+    // POST login
+app.post('/login', async(req, res) => {
+    const errorMessage = null
+    const email = req.body.email
+    const passw = req.body.password
+    try {
+        const userProfile = await Profile.findOne({email:email})
+        if (userProfile.email == email && userProfile.passw  == passw) {
+            res.redirect('/')
+        } else {
+            res.render('profiles/login.ejs', {
+                email: email,
+                password: passw,
+                errorMessage: 'Invalid login credentials!'
+            })
+        }
+        
+    } catch {
+        res.render('profiles/login.ejs', {
+            email: email,
+            password: passw,
+            errorMessage: 'Error logging in!'
+        })
+        
+    }
+})
 
 
 // GET logout
 app.get('/logout', (req, res) => {
     //delete token session
-    res.render('profiles/login.ejs')
+    res.render('profiles/login.ejs', {
+        errorMessage: "You have logged out!"
+    })
 })
 
 

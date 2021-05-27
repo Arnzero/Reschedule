@@ -4,7 +4,9 @@ const router = express.Router()
 const Profile = require('../models/profile')
 
 
-// GET profile edit form
+
+
+// GET profile edit form MISSING ID
 router.get('/edit', (req, res) => {
     res.render('profiles/edit.ejs')
 })

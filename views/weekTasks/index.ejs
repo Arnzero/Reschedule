@@ -1,9 +1,14 @@
 <h2>Entire Week display</h2>
+<a href="/weekTasks/new"><button>Add Common Task</button></a>
 <div>
     <label>Omitting sleep hours</label>
 </div>
 <div>
-    Add a new Task button
+    <% if(typeof weekTasks != 'undefined') { %> 
+        <% weekTasks.forEach(weekTask => { %>
+                <%= weekTask.subTask1 %>
+        <% }) %> 
+    <% } %> 
 </div>
 <div>
     <label>Monday task 1</label>
